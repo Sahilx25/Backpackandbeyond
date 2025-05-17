@@ -80,10 +80,14 @@ a:hover {
 h1,
 h2,
 h3,
-h4,
 h5,
 h6 {
   color: var(--heading-color);
+  font-family: var(--heading-font);
+}
+
+h4{
+  color: #ffffff;
   font-family: var(--heading-font);
 }
 
@@ -2050,19 +2054,20 @@ section,
   padding-left: 12px;
 }
 
-/* Card-like layout */
 .place {
   display: flex;
   align-items: flex-start;
   gap: 1.5rem;
-  background-color: #f8f9fa; /* Light grey background */
-  margin-bottom: 1.5rem;
+  background-color: #f8f9fa;
   padding: 1rem;
   border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.137);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  margin: 0.75rem; /* ⬅ Adds internal spacing between cards */
+  box-sizing: border-box;
 }
 
-/* Bigger image */
+/* Image styling */
 .place img {
   width: 220px;
   height: 150px;
@@ -2070,10 +2075,25 @@ section,
   border-radius: 5px;
 }
 
-/* Description */
+/* Description styling */
 .place-details {
   flex: 1;
 }
+
+/* Optional: Improve responsiveness */
+@media (max-width: 768px) {
+  .place {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .place img {
+    width: 100%;
+    height: auto;
+  }
+}
+
 
 .place-details h6 {
   margin: 0 0 0.5rem;
@@ -2088,18 +2108,6 @@ section,
   line-height: 1.5;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .place {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .place img {
-    width: 100%;
-    height: auto;
-  }
-}
 
 .info-card {
   background: #fff;
@@ -2120,4 +2128,42 @@ section,
 
 ul li {
   padding: 6px 0;
+}
+.package-section {
+  padding: 60px 15px;
+  background-color: #f8f9fa;
+}
+
+.section-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #212529;
+  margin-bottom: 40px;
+}
+
+.card h4 {
+  font-size: 20px;
+  border-bottom: 2px solid #dee2e6;
+  padding-bottom: 10px;
+}
+
+ul li {
+  margin-bottom: 10px;
+  font-size: 15px;
+  color: #495057;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 26px;
+  }
+
+  .card h4 {
+    font-size: 18px;
+  }
+
+  ul li {
+    font-size: 14px;
+  }
 }
