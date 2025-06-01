@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>B&B</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <style>
+    .bg-manali {
+      background-image: url('assets/img/trip/manali.jpg');
+    }
+
+    .bg-spiti {
+      background-image: url('assets/img/trip/spiti.jpg');
+    }
+
+    .bg-ladakh {
+      background-image: url('assets/img/trip/ladakh.jpg');
+    }
+
+    .bg-himachal {
+      background-image: url('assets/img/trip/himachal.jpg');
+    }
+
+    .bg-jibhi {
+      background-image: url('assets/img/trip/jibhi.jpg');
+    }
+
+    .bg-kedarnath {
+      background-image: url('assets/img/trip/kedarnath.jpg');
+    }
+
+    .bg-chardhaam {
+      background-image: url('assets/img/trip/chardhaam.jpg');
+    }
+
+    .bg-chopta {
+      background-image: url('assets/img/trip/chopta.jpg');
+    }
+
+    .bg-goa {
+      background-image: url('assets/img/trip/goa.jpg');
+    }
+
+    .bg-kerala {
+      background-image: url('assets/img/trip/kerala.jpg');
+    }
+
+    .bg-rishikesh {
+      background-image: url('assets/img/trip/rishikesh.jpg');
+    }
+
+    .bg-sojha {
+      background-image: url('assets/img/trip/sojha.jpg');
+    }
+  </style>
+</head>
+
+<body class="index-page">
+
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto">
+        <img src="assets/img/logo.png" alt="Logo" style="height: 40px; margin-right: 10px;">
+        <h1 class="sitename">Backpack and Beyond</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html#packages">Packages</a></li>
+          <li><a href="memories.html">Memories</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="index.html#hero">Home</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+
+    <section id="enquiry" class="contact section">
+
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Send an Enquiry</h2>
+        <p class="description-title">Let us help you plan your next adventure!</p>
+
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+          <div class="row justify-content-center">
+            <div class="col-lg-8">
+              <form action="forms/enquiry.php" method="post" class="php-email-form" data-aos="fade-up"
+                data-aos-delay="500" novalidate>
+                <div class="row g-4">
+
+                  <div class="col-md-6">
+                    <input type="text" name="name" class="form-control" placeholder="Full Name" required>
+                  </div>
+
+                  <div class="col-md-6">
+                    <input type="email" name="email" class="form-control" placeholder="Email Address" required>
+                  </div>
+
+                  <div class="col-md-6">
+                    <input type="tel" name="phone" class="form-control" placeholder="Phone Number" required
+                      pattern="[0-9+\-]{10,15}">
+                  </div>
+
+                  <div class="col-md-6">
+                    <select name="trip" class="form-select" required>
+                      <option value="" disabled selected>Select a Trip</option>
+                      <option value="Manali Group Trip">Manali Group Trip</option>
+                      <option value="Kashmir Group Trip">Kashmir Group Trip</option>
+                      <option value="Leh Ladakh Expedition">Leh Ladakh Expedition</option>
+                      <option value="Spiti Valley Adventure">Spiti Valley Adventure</option>
+                      <option value="Custom Private Trip">Custom Private Trip</option>
+                    </select>
+                  </div>
+
+                  <div class="col-12">
+                    <textarea name="remarks" class="form-control" rows="4"
+                      placeholder="Additional Details (optional)"></textarea>
+                  </div>
+
+                  <div class="col-12 text-center">
+                    <div class="loading" style="display:none;">Sending...</div>
+                    <div class="error-message text-danger"></div>
+                    <div class="sent-message text-success" style="display:none;">Thank you! Your enquiry has been sent
+                      successfully.</div>
+                    <button type="submit" class="btn btn-primary px-5">Send Enquiry</button>
+                  </div>
+
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="footer" class="footer dark-background">
+    <div class="container footer-top">
+      <div class="row gy-4 justify-content-between">
+
+        <div class="col-lg-5 col-md-6 footer-about">
+          <div class="d-flex align-items-start">
+            <img src="assets/img/logo.png" alt="Logo" style="height: 120px; margin-right: 15px;">
+
+            <div>
+              <a href="index.html" class="logo d-flex align-items-center mb-2">
+                <span class="sitename">Backpack and Beyond</span>
+              </a>
+              <p>
+                We create unforgettable travel experiences for backpackers, explorers, and culture lovers —
+                offering curated tours that blend adventure, comfort, and surprise.
+              </p>
+              <div class="social-links d-flex mt-3 gap-3">
+                <a href="#"><i class="bi bi-facebook"></i></a>
+                <a href="#"><i class="bi bi-instagram"></i></a>
+                <a href="#"><i class="bi bi-youtube"></i></a>
+                <a href="#"><i class="bi bi-whatsapp"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Contact Section -->
+        <div class="col-lg-4 col-md-6 footer-contact">
+          <h4>Contact Us</h4>
+          <ul class="list-unstyled">
+            <li>📍 New Delhi, India</li>
+            <li>📞 +91 93174 36998</li>
+            <li>📧 backpackandb@gmail.com</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container text-center mt-4">
+      <p>&copy; <strong>Backpack and Beyond</strong> | All rights reserved 2025</p>
+      <div class="credits">
+        Designed with ❤️ for explorers by <strong>Backpack and Beyond</strong>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
+    <i class="bi bi-arrow-up-short"></i>
+  </a>
+
+  <div id="preloader"></div>
+
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    document.querySelector('.php-email-form').addEventListener('submit', function (e) {
+      e.preventDefault(); // prevent normal form submit
+
+      const form = e.target;
+      const loading = form.querySelector('.loading');
+      const errorMessage = form.querySelector('.error-message');
+      const sentMessage = form.querySelector('.sent-message');
+
+      loading.style.display = 'block';
+      errorMessage.style.display = 'none';
+      sentMessage.style.display = 'none';
+
+      const formData = new FormData(form);
+
+      fetch(form.action, {
+        method: form.method,
+        body: formData,
+      })
+        .then(response => response.text())
+        .then(text => {
+          loading.style.display = 'none';
+          if (text.trim() === "OK") {
+            sentMessage.style.display = 'block';
+            form.reset();
+          } else {
+            errorMessage.textContent = text;
+            errorMessage.style.display = 'block';
+          }
+        })
+        .catch(error => {
+          loading.style.display = 'none';
+          errorMessage.textContent = "Failed to send enquiry. Please try again later.";
+          errorMessage.style.display = 'block';
+          console.error('Error:', error);
+        });
+    });
+  </script>
+
+</body>
+
+</html>
