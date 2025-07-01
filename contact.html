@@ -25,6 +25,8 @@
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
@@ -92,6 +94,7 @@
 
       <nav id="navmenu" class="navmenu">
         <ul>
+          <li><a href="https://wa.me/919317436998?text=Hello%2C%20I%20wanted%20to%20reach%20out%20and%20ask%20about%20the%20details%20of%20some%20package." target="_blank" class=""><i class="bi bi-whatsapp" style="font-size: 1.5rem;"></i></a></li>
           <li><a href="index.html#packages">Packages</a></li>
           <li><a href="memories.html">Memories</a></li>
           <li><a href="index.html#contact">Contact</a></li>
@@ -118,31 +121,38 @@
                 <div class="row g-4">
 
                   <div class="col-md-6">
-                    <input type="text" name="name" class="form-control" placeholder="Full Name" required>
+                    <input type="text" id="UserName" class="form-control" placeholder="Full Name" required>
                   </div>
 
                   <div class="col-md-6">
-                    <input type="email" name="email" class="form-control" placeholder="Email Address" required>
+                    <input type="email" id="UserEmail" class="form-control" placeholder="Email Address" required>
                   </div>
 
                   <div class="col-md-6">
-                    <input type="tel" name="phone" class="form-control" placeholder="Phone Number" required
+                    <input type="tel" id="UserPhone" class="form-control" placeholder="Phone Number" required
                       pattern="[0-9+\-]{10,15}">
                   </div>
 
                   <div class="col-md-6">
-                    <select name="trip" class="form-select" required>
-                      <option value="" disabled selected>Select a Trip</option>
-                      <option value="Manali Group Trip">Manali Group Trip</option>
-                      <option value="Kashmir Group Trip">Kashmir Group Trip</option>
-                      <option value="Leh Ladakh Expedition">Leh Ladakh Expedition</option>
-                      <option value="Spiti Valley Adventure">Spiti Valley Adventure</option>
-                      <option value="Custom Private Trip">Custom Private Trip</option>
+                    <select id="UserTrip" class="form-select" required>
+                      <option value="" selected>Select a Trip</option>
+                      <option value="Custom Private">Custom Private</option>
+                      <option value="Manali">Manali</option>
+                      <option value="Jibhi">Jibhi and Tirthan</option>
+                      <option value="Kedarnath">Kedarnath</option>
+                      <option value="Goa">Goa</option>
+                      <option value="Rishikesh">Rishikesh</option>
+                      <option value="Spiti">Spiti</option>
+                      <option value="Kerala">Kerala</option>
+                      <option value="Tungnath">Tungnath and Chopta</option>
+                      <option value="Himachal">Himachal</option>
+                      <option value="Ladakh">Ladakh</option>
+                      <option value="Sojha">Sojha</option>
                     </select>
                   </div>
 
                   <div class="col-12">
-                    <textarea name="remarks" class="form-control" rows="4"
+                    <textarea id="UserRemarks" class="form-control" rows="4"
                       placeholder="Additional Details (optional)"></textarea>
                   </div>
 
@@ -151,7 +161,7 @@
                     <div class="error-message text-danger"></div>
                     <div class="sent-message text-success" style="display:none;">Thank you! Your enquiry has been sent
                       successfully.</div>
-                    <button type="submit" class="btn btn-primary px-5">Send Enquiry</button>
+                    <button type="submit" onclick="fireEmail()" class="btn btn-primary px-5">Send Enquiry</button>
                   </div>
 
                 </div>
@@ -182,9 +192,11 @@
               </p>
               <div class="social-links d-flex mt-3 gap-3">
                 <a href="#"><i class="bi bi-facebook"></i></a>
-                <a href="#"><i class="bi bi-instagram"></i></a>
+                <a href="https://www.instagram.com/backpackandbeyond.co?igsh=MWZhamZ4MnFvOHNlZQ==" target="_blank">
+  <i class="bi bi-instagram"></i>
+</a>
                 <a href="#"><i class="bi bi-youtube"></i></a>
-                <a href="#"><i class="bi bi-whatsapp"></i></a>
+                <a href="https://wa.me/919317436998?text=Hello%2C%20I%20wanted%20to%20reach%20out%20and%20ask%20about%20the%20details%20of%20some%20package." target="_blank"><i class="bi bi-whatsapp"></i></a>
               </div>
             </div>
           </div>
@@ -228,43 +240,30 @@
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 
   <script src="assets/js/main.js"></script>
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
   <script>
-    document.querySelector('.php-email-form').addEventListener('submit', function (e) {
-      e.preventDefault(); // prevent normal form submit
+    function fireEmail(){
+      debugger
+      var templateParams = {
+        user_name: $('#UserName').val(),
+        user_email: $('#UserEmail').val(),
+        user_phone: $('#UserPhone').val(),
+        trip_name: $('#UserTrip').val(),
+        user_remarks: $('#UserRemarks').val()
+      };
 
-      const form = e.target;
-      const loading = form.querySelector('.loading');
-      const errorMessage = form.querySelector('.error-message');
-      const sentMessage = form.querySelector('.sent-message');
-
-      loading.style.display = 'block';
-      errorMessage.style.display = 'none';
-      sentMessage.style.display = 'none';
-
-      const formData = new FormData(form);
-
-      fetch(form.action, {
-        method: form.method,
-        body: formData,
-      })
-        .then(response => response.text())
-        .then(text => {
-          loading.style.display = 'none';
-          if (text.trim() === "OK") {
-            sentMessage.style.display = 'block';
-            form.reset();
-          } else {
-            errorMessage.textContent = text;
-            errorMessage.style.display = 'block';
-          }
-        })
-        .catch(error => {
-          loading.style.display = 'none';
-          errorMessage.textContent = "Failed to send enquiry. Please try again later.";
-          errorMessage.style.display = 'block';
-          console.error('Error:', error);
+      emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+        .then(function (response) {
+          alert('✅ Message sent successfully!');
+          $('#UserName').val('');
+          $('#UserEmail').val('');
+          $('#UserPhone').val('');
+          $('#UserTrip').val('');
+          $('#UserRemarks').val('');
+        }, function (error) {
+          alert('❌ Failed to send message. Please try again.\n' + JSON.stringify(error));
         });
-    });
+    }
   </script>
 
 </body>
