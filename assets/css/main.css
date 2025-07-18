@@ -1251,9 +1251,9 @@ section,
   padding-right: 50px;
 }
 
-.portfolio .portfolio-content:hover img {
+/* .portfolio .portfolio-content:hover img {
   transform: scale(1.1);
-}
+} */
 
 /*--------------------------------------------------------------
 # Team Section

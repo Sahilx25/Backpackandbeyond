@@ -27,6 +27,62 @@
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <script>
+    emailjs.init("UhgK375QvaNfKtHJA");
+
+
+
+    function fireEmail() {
+      const name = $('#UserName').val().trim();
+      const email = $('#UserEmail').val().trim();
+      const phone = $('#UserPhone').val().trim();
+      const trip = $('#UserTrip').val().trim();
+      const remarks = $('#UserRemarks').val() || "";
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const phoneRegex = /^[0-9+\-]{10,15}$/;
+      if (!name) {
+        alert("Please enter your full name.");
+        $('#UserName').focus();
+        return;
+      }
+      if (!emailRegex.test(email)) {
+        alert("Please enter a valid email address.");
+        $('#UserEmail').focus();
+        return;
+      }
+      if (!phoneRegex.test(phone)) {
+        alert("Please enter a valid phone number (10-15 digits, can include + or -).");
+        $('#UserPhone').focus();
+        return;
+      }
+      if (!trip) {
+        alert("Please select a trip.");
+        $('#UserTrip').focus();
+        return;
+      }
+      const templateParams = {
+        user_name: name,
+        user_email: email,
+        user_phone: phone,
+        trip_name: trip,
+        user_remarks: remarks
+      };
+      emailjs.send("service_4y9orfq", "template_zpijhlw", templateParams)
+        .then(function (response) {
+          alert('✅ Message sent successfully!');
+          $('#UserName').val('');
+          $('#UserEmail').val('');
+          $('#UserPhone').val('');
+          $('#UserTrip').val('');
+          $('#UserRemarks').val('');
+        }, function (error) {
+          alert('❌ Failed to send message. Please try again.\n' + JSON.stringify(error));
+          console.error("EmailJS Error:", error);
+        });
+    }
+  </script>
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
@@ -91,12 +147,14 @@
         <img src="assets/img/logo.png" alt="Logo" style="height: 40px; margin-right: 10px;">
         <h1 class="sitename">Backpack and Beyond</h1>
       </a>
-      <a style="padding-bottom: 5px; padding-right: 10px;" class="logo d-flex align-items-center me-auto" href="https://wa.me/919317436998?text=Hello%2C%20I%20wanted%20to%20reach%20out%20and%20ask%20about%20the%20details%20of%20some%20package." target="_blank" class=""><i class="bi bi-whatsapp" style="font-size: 1.5rem;"></i></a>
+      <a style="padding-bottom: 5px; padding-right: 10px;" class="logo d-flex align-items-center me-auto"
+        href="https://wa.me/919317436998?text=Hello%2C%20I%20wanted%20to%20reach%20out%20and%20ask%20about%20the%20details%20of%20some%20package."
+        target="_blank" class=""><i class="bi bi-whatsapp" style="font-size: 1.5rem;"></i></a>
       <nav id="navmenu" class="navmenu">
         <ul>
           <li><a href="index.html#packages">Packages</a></li>
           <li><a href="memories.html">Memories</a></li>
-          <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="contact.html">Contact</a></li>
           <li><a href="index.html#hero">Home</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -115,56 +173,54 @@
         <div class="container" data-aos="fade-up" data-aos-delay="100">
           <div class="row justify-content-center">
             <div class="col-lg-8">
-              <form action="forms/enquiry.php" method="post" class="php-email-form" data-aos="fade-up"
-                data-aos-delay="500" novalidate>
-                <div class="row g-4">
 
-                  <div class="col-md-6">
-                    <input type="text" id="UserName" class="form-control" placeholder="Full Name" required>
-                  </div>
+              <div class="row g-4">
 
-                  <div class="col-md-6">
-                    <input type="email" id="UserEmail" class="form-control" placeholder="Email Address" required>
-                  </div>
-
-                  <div class="col-md-6">
-                    <input type="tel" id="UserPhone" class="form-control" placeholder="Phone Number" required
-                      pattern="[0-9+\-]{10,15}">
-                  </div>
-
-                  <div class="col-md-6">
-                    <select id="UserTrip" class="form-select" required>
-                      <option value="" selected>Select a Trip</option>
-                      <option value="Custom Private">Custom Private</option>
-                      <option value="Manali">Manali</option>
-                      <option value="Jibhi">Jibhi and Tirthan</option>
-                      <option value="Kedarnath">Kedarnath</option>
-                      <option value="Goa">Goa</option>
-                      <option value="Rishikesh">Rishikesh</option>
-                      <option value="Spiti">Spiti</option>
-                      <option value="Kerala">Kerala</option>
-                      <option value="Tungnath">Tungnath and Chopta</option>
-                      <option value="Himachal">Himachal</option>
-                      <option value="Ladakh">Ladakh</option>
-                      <option value="Sojha">Sojha</option>
-                    </select>
-                  </div>
-
-                  <div class="col-12">
-                    <textarea id="UserRemarks" class="form-control" rows="4"
-                      placeholder="Additional Details (optional)"></textarea>
-                  </div>
-
-                  <div class="col-12 text-center">
-                    <div class="loading" style="display:none;">Sending...</div>
-                    <div class="error-message text-danger"></div>
-                    <div class="sent-message text-success" style="display:none;">Thank you! Your enquiry has been sent
-                      successfully.</div>
-                    <button type="submit" onclick="fireEmail()" class="btn btn-primary px-5">Send Enquiry</button>
-                  </div>
-
+                <div class="col-md-6">
+                  <input type="text" id="UserName" class="form-control" placeholder="Full Name">
                 </div>
-              </form>
+
+                <div class="col-md-6">
+                  <input type="email" id="UserEmail" class="form-control" placeholder="Email Address">
+                </div>
+
+                <div class="col-md-6">
+                  <input type="tel" id="UserPhone" class="form-control" placeholder="Phone Number"
+                    pattern="[0-9+\-]{10,15}">
+                </div>
+
+                <div class="col-md-6">
+                  <select id="UserTrip" class="form-select">
+                    <option value="" selected>Select a Trip</option>
+                    <option value="Custom Private">Custom Private</option>
+                    <option value="Manali">Manali</option>
+                    <option value="Jibhi">Jibhi and Tirthan</option>
+                    <option value="Kedarnath">Kedarnath</option>
+                    <option value="Goa">Goa</option>
+                    <option value="Rishikesh">Rishikesh</option>
+                    <option value="Spiti">Spiti</option>
+                    <option value="Kerala">Kerala</option>
+                    <option value="Tungnath">Tungnath and Chopta</option>
+                    <option value="Himachal">Himachal</option>
+                    <option value="Ladakh">Ladakh</option>
+                    <option value="Sojha">Sojha</option>
+                  </select>
+                </div>
+
+                <div class="col-12">
+                  <textarea id="UserRemarks" class="form-control" rows="4"
+                    placeholder="Additional Details (optional)"></textarea>
+                </div>
+
+                <div class="col-12 text-center">
+                  <div class="loading" style="display:none;">Sending...</div>
+                  <div class="error-message text-danger"></div>
+                  <div class="sent-message text-success" style="display:none;">Thank you! Your enquiry has been sent
+                    successfully.</div>
+                  <button type="submit" onclick="fireEmail()" class="btn btn-primary px-5">Send Enquiry</button>
+                </div>
+
+              </div>
             </div>
           </div>
         </div>
@@ -192,10 +248,11 @@
               <div class="social-links d-flex mt-3 gap-3">
                 <a href="#"><i class="bi bi-facebook"></i></a>
                 <a href="https://www.instagram.com/backpackandbeyond.co?igsh=MWZhamZ4MnFvOHNlZQ==" target="_blank">
-  <i class="bi bi-instagram"></i>
-</a>
+                  <i class="bi bi-instagram"></i>
+                </a>
                 <a href="#"><i class="bi bi-youtube"></i></a>
-                <a href="https://wa.me/919317436998?text=Hello%2C%20I%20wanted%20to%20reach%20out%20and%20ask%20about%20the%20details%20of%20some%20package." target="_blank"><i class="bi bi-whatsapp"></i></a>
+                <a href="https://wa.me/919317436998?text=Hello%2C%20I%20wanted%20to%20reach%20out%20and%20ask%20about%20the%20details%20of%20some%20package."
+                  target="_blank"><i class="bi bi-whatsapp"></i></a>
               </div>
             </div>
           </div>
@@ -208,7 +265,7 @@
           <ul class="list-unstyled">
             <li>📍 New Delhi, India</li>
             <li>📞 +91 93174 36998</li>
-            <li>📧 backpackandb@gmail.com</li>
+            <li>📧 backpackbeyondtrvls@gmail.com</li>
           </ul>
         </div>
 
@@ -239,31 +296,9 @@
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 
   <script src="assets/js/main.js"></script>
-  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-  <script>
-    function fireEmail(){
-      debugger
-      var templateParams = {
-        user_name: $('#UserName').val(),
-        user_email: $('#UserEmail').val(),
-        user_phone: $('#UserPhone').val(),
-        trip_name: $('#UserTrip').val(),
-        user_remarks: $('#UserRemarks').val()
-      };
 
-      emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
-        .then(function (response) {
-          alert('✅ Message sent successfully!');
-          $('#UserName').val('');
-          $('#UserEmail').val('');
-          $('#UserPhone').val('');
-          $('#UserTrip').val('');
-          $('#UserRemarks').val('');
-        }, function (error) {
-          alert('❌ Failed to send message. Please try again.\n' + JSON.stringify(error));
-        });
-    }
-  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4.0.0/dist/email.min.js"></script>
+
 
 </body>
 
