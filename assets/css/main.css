@@ -6,35 +6,21 @@
 
 :root {
   --background-color: #ffffff;
-  /* Background color for the entire website, including individual sections */
   --default-color: #212529;
-  /* Default color used for the majority of the text content across the entire website */
   --heading-color: #2e463b;
-  /* Color for headings, subheadings and title throughout the website */
   --accent-color: #0ac472;
-  /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
   --surface-color: #ffffff;
-  /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
   --contrast-color: #ffffff;
-  /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
 }
 
 :root {
   --nav-color: rgba(255, 255, 255, 0.8);
-  /* The default color of the main navmenu links */
   --nav-hover-color: #0ac472;
-  /* Applied to main navmenu links when they are hovered over or active */
   --nav-mobile-background-color: #ffffff;
-  /* Used as the background color for mobile navigation menu */
   --nav-dropdown-background-color: #ffffff;
-  /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
   --nav-dropdown-color: #212529;
-  /* Used for navigation links of the dropdown items in the navigation menu. */
   --nav-dropdown-hover-color: #0ac472;
-  /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
 }
-
-/* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
 
 .light-background {
   --background-color: #f9f9f9;
@@ -49,7 +35,6 @@
   --contrast-color: #000000;
 }
 
-/* Smooth scroll */
 :root {
   scroll-behavior: smooth;
 }
@@ -2133,7 +2118,6 @@ section,
   box-sizing: border-box;
 }
 
-/* Image styling */
 .place img {
   width: 220px;
   height: 150px;
@@ -2142,12 +2126,10 @@ section,
   border-radius: 5px;
 }
 
-/* Description styling */
 .place-details {
   flex: 1;
 }
 
-/* Optional: Improve responsiveness */
 @media (max-width: 768px) {
   .place {
     flex-direction: column;
@@ -2316,4 +2298,9 @@ textarea::placeholder {
 
 .bg-sojha {
   background-image: url('assets/img/trip/sojha.jpg');
+}
+
+.input-error {
+  border: 2px solid red !important;
+  background-color: #ffe6e6;
 }
