@@ -58,7 +58,7 @@ body, html {
 }
 .container {
   max-width: 100%;
-  padding: 0 15px; /* optional */
+  padding: 0 19px; /* optional */
   box-sizing: border-box;
 }
 
