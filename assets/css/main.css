@@ -51,7 +51,7 @@ body {
   background-color: var(--background-color);
   font-family: var(--default-font);
 }
-body, html {
+body, html, footer {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
@@ -2066,6 +2066,7 @@ section,
 .place img {
   width: 220px;
   height: 150px;
+  padding:5px;
   object-fit: cover;
   border-radius: 5px;
 }
