@@ -1,26 +1,37 @@
-
 :root {
-  --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --heading-font: "Raleway",  sans-serif;
-  --nav-font: "Poppins",  sans-serif;
-}
-
-:root { 
-  --background-color: #ffffff; /* Background color for the entire website, including individual sections */
-  --default-color: #212529; /* Default color used for the majority of the text content across the entire website */
-  --heading-color: #2e463b; /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #0ac472; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
-  --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
-  --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+  --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --heading-font: "Raleway", sans-serif;
+  --nav-font: "Poppins", sans-serif;
 }
 
 :root {
-  --nav-color: rgba(255, 255, 255, 0.8);  /* The default color of the main navmenu links */
-  --nav-hover-color: #0ac472; /* Applied to main navmenu links when they are hovered over or active */
-  --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
-  --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
-  --nav-dropdown-color: #212529; /* Used for navigation links of the dropdown items in the navigation menu. */
-  --nav-dropdown-hover-color: #0ac472; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+  --background-color: #ffffff;
+  /* Background color for the entire website, including individual sections */
+  --default-color: #212529;
+  /* Default color used for the majority of the text content across the entire website */
+  --heading-color: #2e463b;
+  /* Color for headings, subheadings and title throughout the website */
+  --accent-color: #0ac472;
+  /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+  --surface-color: #ffffff;
+  /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
+  --contrast-color: #ffffff;
+  /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+}
+
+:root {
+  --nav-color: rgba(255, 255, 255, 0.8);
+  /* The default color of the main navmenu links */
+  --nav-hover-color: #0ac472;
+  /* Applied to main navmenu links when they are hovered over or active */
+  --nav-mobile-background-color: #ffffff;
+  /* Used as the background color for mobile navigation menu */
+  --nav-dropdown-background-color: #ffffff;
+  /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
+  --nav-dropdown-color: #212529;
+  /* Used for navigation links of the dropdown items in the navigation menu. */
+  --nav-dropdown-hover-color: #0ac472;
+  /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
 }
 
 /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
@@ -51,11 +62,15 @@ body {
   background-color: var(--background-color);
   font-family: var(--default-font);
 }
-body, html, footer {
+
+body,
+html,
+footer {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
 }
+
 .container {
   box-sizing: border-box;
 }
@@ -81,7 +96,7 @@ h6 {
   font-family: var(--heading-font);
 }
 
-h4{
+h4 {
   color: #ffffff;
   font-family: var(--heading-font);
 }
@@ -635,6 +650,7 @@ h4{
 .footer .footer-contact p {
   margin-bottom: 5px;
 }
+
 .footer-about {
   padding: 20px;
 }
@@ -1015,14 +1031,16 @@ section,
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.5); /* dark overlay for contrast */
+  background: rgba(0, 0, 0, 0.5);
+  /* dark overlay for contrast */
   transition: background 0.3s ease;
   z-index: 0;
 }
 
 /* Slightly stronger overlay on hover */
 .why-us .card-item:hover::before {
-  background: rgba(0, 0, 0, 0.7); /* enhance the overlay slightly */
+  background: rgba(0, 0, 0, 0.7);
+  /* enhance the overlay slightly */
 }
 
 /* Keep content above overlay */
@@ -1035,11 +1053,13 @@ section,
 .why-us .card-item span,
 .why-us .card-item h4,
 .why-us .card-item p {
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6); /* softer shadow */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+  /* softer shadow */
 }
 
 .why-us .card-item span {
-  color: #ffd700; /* Gold accent for the title */
+  color: #ffd700;
+  /* Gold accent for the title */
   display: block;
   font-size: 28px;
   font-weight: 700;
@@ -1067,7 +1087,8 @@ section,
 /* Card hover effect */
 .why-us .card-item:hover {
   padding: 30px 30px 70px 30px;
-  cursor: pointer; /* Show pointer cursor to indicate clickability */
+  cursor: pointer;
+  /* Show pointer cursor to indicate clickability */
 }
 
 /*--------------------------------------------------------------
@@ -2088,6 +2109,7 @@ section,
   margin-right: 8px;
   color: var(--accent-color);
 }
+
 .day-section {
   margin-bottom: 3rem;
 }
@@ -2105,7 +2127,7 @@ section,
   align-items: flex-start;
   background-color: #f8f9fa;
   border-radius: 10px;
-  padding:20px;
+  padding: 20px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   height: 100%;
   box-sizing: border-box;
@@ -2115,7 +2137,7 @@ section,
 .place img {
   width: 220px;
   height: 150px;
-  padding:5px;
+  padding: 5px;
   object-fit: cover;
   border-radius: 5px;
 }
@@ -2174,6 +2196,7 @@ section,
 ul li {
   padding: 6px 0;
 }
+
 .package-section {
   padding: 60px 15px;
   background-color: #f8f9fa;
@@ -2212,6 +2235,7 @@ ul li {
     font-size: 14px;
   }
 }
+
 .custom-dropdown {
   appearance: none;
   -webkit-appearance: none;
@@ -2221,6 +2245,7 @@ ul li {
   padding-right: 2.5rem;
   cursor: pointer;
 }
+
 .php-email-form .loading {
   font-weight: 600;
   margin-bottom: 10px;
@@ -2235,6 +2260,7 @@ ul li {
   font-weight: 600;
   margin-bottom: 10px;
 }
+
 input::placeholder,
 select,
 textarea::placeholder {
@@ -2242,4 +2268,52 @@ textarea::placeholder {
   color: #6c757d !important;
   font-family: inherit !important;
   opacity: 1 !important;
+}
+
+.bg-manali {
+  background-image: url('assets/img/trip/manali.jpg');
+}
+
+.bg-spiti {
+  background-image: url('assets/img/trip/spiti.jpg');
+}
+
+.bg-ladakh {
+  background-image: url('assets/img/trip/ladakh.jpg');
+}
+
+.bg-himachal {
+  background-image: url('assets/img/trip/himachal.jpg');
+}
+
+.bg-jibhi {
+  background-image: url('assets/img/trip/jibhi.jpg');
+}
+
+.bg-kedarnath {
+  background-image: url('assets/img/trip/kedarnath.jpg');
+}
+
+.bg-chardhaam {
+  background-image: url('assets/img/trip/chardhaam.jpg');
+}
+
+.bg-chopta {
+  background-image: url('assets/img/trip/chopta.jpg');
+}
+
+.bg-goa {
+  background-image: url('assets/img/trip/goa.jpg');
+}
+
+.bg-kerala {
+  background-image: url('assets/img/trip/kerala.jpg');
+}
+
+.bg-rishikesh {
+  background-image: url('assets/img/trip/rishikesh.jpg');
+}
+
+.bg-sojha {
+  background-image: url('assets/img/trip/sojha.jpg');
 }
