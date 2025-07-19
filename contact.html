@@ -42,21 +42,21 @@
         validation = false;
       }
 
-      if (!emailRegex.test(email)) {
-        $('#UserEmail').addClass('input-error');
-        if (validation) $('#UserEmail').focus();
+      if (!phoneRegex.test(phone)) {
+        $('#UserPhone').addClass('input-error');
+        $('#UserPhone').focus();
         validation = false;
       }
 
-      if (!phoneRegex.test(phone)) {
-        $('#UserPhone').addClass('input-error');
-        if (validation) $('#UserPhone').focus();
+      if (!emailRegex.test(email)) {
+        $('#UserEmail').addClass('input-error');
+        $('#UserEmail').focus();
         validation = false;
       }
 
       if (!trip) {
         $('#UserTrip').addClass('input-error');
-        if (validation) $('#UserTrip').focus();
+        $('#UserTrip').focus();
         validation = false;
       }
 
